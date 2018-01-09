@@ -1,0 +1,350 @@
+.vux-header {
+    height: 110px;
+    background: @primary-color;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 99;
+    .vux-header-left {
+        font-size: 48px;
+        top: 0px;
+        left: 45px;
+        .img-btn {
+            margin-top: 20px;
+            width: 70px;
+            img {
+                width: 100%;
+            }
+        }
+        a.vux-header-back {
+            display: none!important;
+            line-height: 110px;
+            height: 110px;
+            display: block;
+            padding-left: 60px;
+            color: #fff;
+        }
+        .left-arrow {
+            margin-top: 30px;
+            width: 80px;
+            height: 80px;
+            &::before {
+                width: 40px;
+                height: 40px;
+                border-color: #fff;
+                border-width: 4px 0 0 4px;
+            }
+        }
+    }
+    .vux-header-right {
+        right: 45px;
+        top: 0px;
+        .img-btn {
+            margin-top: 20px;
+            width: 70px;
+            img {
+                width: 100%;
+            }
+        }
+        a {
+            top: 0px;
+            height: 110px;
+            line-height: 110px;
+            display: block;
+        }
+    }
+    .vux-header-title {
+        height: 110px;
+        color: #fff;
+        font-size: 48px;
+        line-height: 48px;
+        span {
+            margin-top: 30px;
+        }
+    }
+}
+
+button.weui-btn {
+    font-size: 42px;
+    &.weui-btn_primary {
+        background: @primary-color;
+        color: #fff;
+        &:active {
+            background: @primary-color;
+        }
+    }
+    &::after {
+        border: none;
+    }
+}
+
+.vux-x-input {
+    &.is-danger {
+        //      .weui-icon-warn:last-child {
+        //          display: inline-block!important;
+        //      }
+    }
+    .weui-icon {
+        font-size: 50px;
+        &::before {
+            font-size: 50px;
+        }
+        &.weui-icon-clear {
+            display: none;
+        }
+    }
+    input {
+        height: 110px;
+        font-size: 42px;
+    }
+    img {
+        width: 70px;
+        height: 60px;
+        padding-right: 10px;
+        display: block;
+    }
+    .get-vCode {
+        font-size: 40px;
+        color: @primary-color;
+        margin-right: 30px;
+    }
+}
+
+div.weui-toast {
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    border-radius: 15px;
+    min-height: auto;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    &>i.weui-loading {
+        width: 80px;
+        height: 80px;
+    }
+    &>i.weui-icon_toast {
+        &::before {
+            font-size: 120px;
+        }
+    }
+    &>p {
+        font-size: 40px;
+    }
+    &.weui-toast_text {
+        width: auto!important;
+        padding: 0px 30px;
+    }
+}
+
+.vux-indicator {
+    a {
+        margin-left: 15px!important;
+        .vux-icon-dot {
+            width: 25px!important;
+            height: 25px!important;
+            border-radius: 100%!important;
+            &.active {
+                background-color: @primary-color!important ;
+            }
+        }
+    }
+}
+
+.vux-swiper {
+    height: 100%!important;
+}
+
+span.vux-spinner {
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    margin-top: 50px;
+    svg {
+        width: 70px;
+        height: 70px;
+    }
+    &.vux-spinner-dots{
+        svg {
+        width: 100px;
+        height: 100px;
+    }
+    }
+}
+
+.weui-cell {
+    position: relative;
+    .weui-cell__hd {
+        img {
+            width: 60px;
+            margin-right: 30px;
+            vertical-align: -5px;
+        }
+    }
+    .weui-cell__ft {
+        &::after {
+            width: 30px;
+            height: 30px;
+            margin-top: -15px;
+        }
+    }
+    .vux-label {
+        font-size: 36px;
+    }
+    .vux-spinner {
+        left: 93%;
+        top: -24px;
+    }
+}
+
+.weui-dialog__btn_primary {
+    color: @primary-color;
+}
+
+.weui-dialog {
+    border-radius: 15px;
+    .weui-dialog__title {
+        font-size: 50px;
+    }
+    .weui-dialog__bd {
+        font-size: 46px;
+    }
+    .weui-dialog__ft {
+        padding: 40px 0px;
+        .weui-dialog__btn {
+            font-size: 50px;
+        }
+    }
+}
+
+.dp-container {
+    .dp-header {
+        border-bottom: 1px solid #e7e7e7;
+        .vux-datetime-cancel,
+        .vux-datetime-confirm {
+            font-size: 42px;
+            height: 120px;
+            line-height: 120px;
+        }
+        .vux-datetime-cancel {
+            padding-left: 40px;
+        }
+        .vux-datetime-confirm {
+            padding-right: 40px;
+        }
+        .dp-center {
+            text-align: center;
+            font-size: 40px;
+            color: #828282;
+        }
+    }
+    .dp-content {
+        .scroller-item {
+            font-size: 42px;
+        }
+    }
+}
+
+//过渡
+.vux-pop-out-enter-active,
+.vux-pop-out-leave-active,
+.vux-pop-in-enter-active,
+.vux-pop-in-leave-active {
+    will-change: transform;
+    transition: all 500ms;
+    height: 100%;
+    top: 46px;
+    position: absolute;
+    backface-visibility: hidden;
+    perspective: 1000;
+}
+
+.vux-pop-out-enter {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+}
+
+.vux-pop-out-leave-active {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+}
+
+.vux-pop-in-enter {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+}
+
+.vux-pop-in-leave-active {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+}
+
+.weui-loading_toast {
+    z-index: 999;
+}
+
+.vux-popup-picker-container {
+    .vux-popup-picker-header {
+        height: 120px;
+    }
+    .vux-popup-picker-cancel,
+    .vux-popup-picker-header-menu-right {
+        font-size: 42px;
+        height: 120px;
+        line-height: 120px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+.weui-textarea-counter{
+    font-size:32px;
+}
+.vux-popup-picker-value{
+    font-size:46px!important;
+}
+
+.router-view {
+  width: 100%; 
+}
+.vux-header-fade-in-right-enter-active {
+  animation: fadeinR .3s;
+}
+.vux-header-fade-in-left-enter-active {
+  animation: fadeinL .3s;
+}
+.vux-pop-out-enter-active,
+.vux-pop-out-leave-active,
+.vux-pop-in-enter-active,
+.vux-pop-in-leave-active {
+  will-change: transform;
+  transition: all 300ms;
+  height: 100%;
+  top:0px;
+  position: absolute;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+.vux-pop-out-enter {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+.vux-pop-out-leave-active {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+.vux-pop-in-enter {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+.vux-pop-in-leave-active {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+.vux-actionsheet{
+    .vux-actionsheet-menu-default{
+        padding:40px 0px;
+        font-size:42px;
+    }
+    .weui-actionsheet__cell{
+         padding:40px 0px;
+        font-size:42px;
+    }
+}

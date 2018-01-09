@@ -1,0 +1,614 @@
+#app-box {
+    &>.view-padding {
+        padding-top: 110px;
+        padding-bottom: 130px;
+    }
+}
+
+html,
+body,
+#app-box {
+    background: none;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: #e3e3e5;
+    color: #333;
+    /*background-color: @primary-color;*/
+    /*background-color: #f7f7f7;*/
+    /*overflow-x: hidden;*/
+    font-family: Microsoft Yahei, SimSun, Helvetica;
+}
+
+ ::-webkit-input-placeholder {
+    color: #bfbfbf;
+}
+
+
+/*.is-danger-text{
+        color:#ff4949;
+        font-size:34px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }   */
+
+.common-menu-list {
+    border-top: 1px solid @gray;
+    .weui-cells {
+        margin-top: 0px;
+        &::before {
+            border: none
+        }
+        &::after {
+            border-color: #cdcdcf;
+            border-width: 2px;
+        }
+        .weui-cell {
+            padding: 40px 60px;
+            &::before,
+            &::after {
+                border-color: #cdcdcf;
+                left: 0px;
+            }
+            label {
+                font-size: 42px;
+            }
+            .weui-cell__ft {
+                font-size: 42px;
+                color: #000;
+                &::after {
+                    border-color: #999999;
+                }
+            }
+            img {
+                width: 70px;
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+.common-padding {
+    padding-top: 110px;
+    height: 94.3%;
+    background: #fff;
+}
+
+.common-search {
+    background: #d9d9d9;
+    padding: 20px 0px;
+    input {
+        border-radius: 15px;
+        border: 0;
+        width: 95%;
+        margin: 0 auto;
+        display: block;
+        padding: 20px 0px;
+        text-indent: 40px;
+        font-size: 42px;
+        background: url(~assets/images/common-search.png) no-repeat;
+        background-color: #fff;
+        background-size: 50px;
+        background-position: 30px;
+    }
+}
+
+.common-scroller {
+    padding-top: 110px;
+    padding-bottom: 110px;
+    background: #fff;
+    height: 88.5%!important;
+    .loading-layer {
+      padding-bottom: 60px;
+    }
+    .list {
+        min-height: 200px;
+        background: #fff;
+    }
+}
+
+.common-error-text {
+    background: red;
+    color: #fff;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+    position: fixed;
+    top: -100px;
+    width: 100%;
+    z-index: 9999;
+    font-size: 38px;
+    opacity: 0;
+    transition: all 0.2s ease-in;
+    &.common-error-text-show {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+.common-date-time {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: @primary-color;
+    text-align: center;
+    font-size: 0px;
+    padding: 10px 0px;
+    a {
+        i.icon {
+            background: url(~assets/images/common-date-time.png) no-repeat left;
+            background-size: contain;
+            width: 60px;
+            height: 60px;
+            display: inline-block;
+            vertical-align: -5px;
+            margin-right: 10px;
+        }
+        width: 50%;
+        color:#fff;
+        /*text-align: center;*/
+        display: inline-block;
+        border-right:1px solid #fff;
+        font-size:42px;
+        margin:10px 0px;
+        &:first-child {
+            width: 49.5%;
+        }
+        &:last-child {
+            border-right: none;
+        }
+    }
+}
+
+.common-vCode {
+    font-size: 36px;
+    color: @gray;
+}
+
+.beyond-hide {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+textarea {
+    font-family: "microsoft yahei";
+    font-size: 14px;
+}
+
+a {
+    color: #333;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.header {
+    /*background: @color;*/
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 999;
+    /*height:46px;
+        line-height:46px;*/
+    a {
+        color: #fff!important;
+        font-size: 0.4rem;
+    }
+}
+
+.common-no-data {
+    text-align: center;
+    font-size: 42px;
+    margin-top: 40px;
+    background: #fff;
+    color: #aaaaaa;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*登录注册找回密码通用表单样式*/
+
+.common-login-group {
+    width: 800px;
+    margin: 0 auto;
+    border: 2px solid @gray;
+    border-radius: 15px;
+    margin-top: 115px;
+    margin-bottom: 110px;
+    overflow: hidden;
+    .weui-cells {
+        margin-top: 0;
+        &::before,
+        &::after {
+            border: none;
+        }
+        .weui-cell {
+            &::before,
+            &::after {
+                border: 2px solid @gray;
+                left: 0px;
+            }
+            /*&:first-child {
+                            &::before {
+                                border-top: 2px solid @gray;
+                                left: 0px;
+                            }
+                        }*/
+        }
+    }
+}
+
+button.common-login-btn {
+    width: 800px;
+    height: 128px;
+    font-size: 52px;
+    border-radius: 15px;
+}
+
+.common-illustration {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    height: 265px;
+    //  background: url(~assets/images/dl_chahua.png) no-repeat center;
+    background-size: contain;
+}
+
+.xh-contect {
+    margin-top: 46px;
+    padding-bottom: 57px;
+    /*-webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+            -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;*/
+    z-index: 100
+}
+
+input {
+    -webkit-appearance: none;
+}
+
+input:disabled,
+input[disabled] {
+    color: #000;
+    -webkit-text-fill-color: #000;
+    -webkit-opacity: 1;
+    opacity: 1;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+ul {
+    li {
+        list-style: none;
+    }
+}
+
+img {
+    position: relative;
+}
+
+img:after {
+    content: '';
+    background: @primary-color;
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.common-box-list {
+    .box-body {
+        i.triangle {
+            position: absolute;
+            right: 120px;
+            bottom: -55px;
+            width: 0;
+            height: 0;
+            border-width: 30px;
+            border-style: solid;
+            border-color: #fff transparent transparent transparent;
+        }
+        .img {
+            vertical-align: -15px;
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            border-radius: 100%;
+            overflow: hidden;
+            border: 2px solid @gray;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .text {
+            display: inline-block;
+            width: 790px;
+            p {
+                margin-bottom: 10px;
+                width: 100%;
+                span {
+                    margin-left: 20px;
+                }
+                .name,
+                .age,
+                .sex,
+                .position,
+                .department,
+                .tel {
+                    font-size: 42px;
+                }
+                .sex,
+                .age,
+                .tel {
+                    color: #666666;
+                }
+                .time {
+                    float: right;
+                    font-size: 38px;
+                    margin-top: 10px;
+                    color: #989898;
+                }
+                .department {
+                    background: @primary-color;
+                    color: #fff;
+                    border-radius: 10px;
+                    padding: 3px 15px;
+                }
+                .position {
+                    color: #ff7802;
+                }
+            }
+        }
+    }
+    .box-footer {
+        overflow: hidden;
+        -webkit-line-clamp: 1;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+        line-height: 60px;
+        margin-top: 20px;
+        font-size: 42px;
+        color: #999999;
+    }
+}
+
+.common-user-details {
+    background: url(~assets/images/common-user-bg.jpg) no-repeat center;
+    background-size: cover;
+    height: 350px;
+    position: relative;
+    .vux-rater {
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+    }
+    .left {
+        position: absolute;
+        left: 100px;
+        bottom: -150px;
+        text-align: center;
+        font-size: 42px;
+        img {
+            overflow: hidden;
+            background: #bfbfbf;
+            border: 6px solid #fff;
+            border-radius: 100%;
+            width: 70px;
+            height: 70px;
+            padding: 50px;
+        }
+        span {
+            font-size: 62px;
+            color: #1abd24;
+        }
+        p {
+            margin-top: -10px;
+        }
+        &.active {
+            img {
+                background: @primary-color;
+            }
+        }
+    }
+    .center {
+        position: absolute;
+        left: 50%;
+        width: 450px;
+        margin-left: -225px;
+        bottom: -300px;
+        text-align: center;
+        font-size: 42px;
+        .img {
+            overflow: hidden;
+            background: #bfbfbf;
+            border: 10px solid #fff;
+            border-radius: 100%;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        h1 {
+            font-size: 52px;
+            margin-bottom: 10px;
+            i {
+                width: 70px;
+                height: 70px;
+                vertical-align: -7px;
+                margin-left: 20px;
+                display: inline-block;
+                background: url(~assets/images/common-not-certified.png) no-repeat center;
+                background-size: contain;
+                &.active {
+                    background: url(~assets/images/common-certified.png) no-repeat center;
+                    background-size: 100%;
+                }
+            }
+        }
+        p {
+            color: #666;
+            margin-top: -10px;
+            text-align: center;
+            &.doctor-department {
+                color: #f76301;
+            }
+        }
+    }
+    .right {
+        overflow: hidden;
+        position: absolute;
+        right: 100px;
+        bottom: -150px;
+        text-align: center;
+        font-size: 42px;
+        img {
+            background: #bfbfbf;
+            border: 6px solid #fff;
+            border-radius: 100%;
+            width: 70px;
+            height: 70px;
+            padding: 50px;
+        }
+        span {
+            color: #eb642d;
+            font-size: 62px;
+        }
+        p {
+            margin-top: -10px;
+        }
+        &.active {
+            img {
+                background: @primary-color;
+            }
+        }
+    }
+}
+
+.vux-rater {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.vux-rater-box {
+    margin-right: 0!important;
+}
+
+.common-header-right {
+    background: @primary-color;
+    position: fixed;
+    right: 25px;
+    top: 0px;
+    z-index: 99;
+    color: #fff;
+    height: 110px;
+    line-height: 110px;
+    transition: opacity 1000ms;
+    opacity: 1;
+    color: #fff;
+    font-size: 42px;
+    .img-btn {
+        margin-top: 20px;
+        width: 70px;
+        img {
+            width: 100%;
+        }
+    }
+    a {
+        font-size: 42px;
+        color: #fff;
+        display: block;
+    }
+    &.active {
+        opacity: 1;
+    }
+    span.vux-spinner {
+        left: 95%;
+        top: -40px;
+        svg {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .address-select {
+        position: relative;
+        .addressSelect {
+            opacity: 0;
+            position: absolute;
+            z-index: 2;
+            width: 200px;
+            height: 110px;
+            top: 0px;
+            right: 0px;
+        }
+        .vux-cell-box {
+            height: 100%;
+            .weui-cell {
+                padding: 0px;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.common-header-left {
+    background: @primary-color;
+    width: 100px;
+    position: fixed;
+    left: 25px;
+    top: 0px;
+    z-index: 99;
+    color: #fff;
+    height: 110px;
+    line-height: 110px;
+    transition: opacity 1000ms;
+    opacity: 1;
+    color: #fff;
+    font-size: 42px;
+    .img-btn {
+        margin-top: 20px;
+        width: 70px;
+        img {
+            width: 100%;
+        }
+    }
+    a {
+        font-size: 42px;
+        color: #fff;
+        display: block;
+    }
+    &.active {
+        opacity: 1;
+    }
+}
