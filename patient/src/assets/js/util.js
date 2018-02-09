@@ -22,7 +22,7 @@ export default {
 		400: '心率',
 		500: '空腹血糖',
 		501: '餐后血糖',
-		1000: '脉率'
+		// 1000: '脉率'
 	},
 	healthDataType: {
 		//		100: '体温(手环)',
@@ -37,7 +37,7 @@ export default {
 		//		700: '步数',
 		//		800: '热量',
 		900: '心电图',
-		1000: '脉率',
+		// 1000: '脉率',
 	},
 	//清除缓存
 	clearLocalStorage() {
@@ -62,7 +62,7 @@ export default {
 		var date2 = new Date(date1);
 		date2.setDate(date1.getDate() + 7);
 		return {
-			startTime: date1.getFullYear() + "-" + (date1.getMonth() + 1) + "-" + date1.getDate(),
+			startTime: date1.getFullYear() + "-" + (date1.getMonth() + 1) + "-" + (date1.getDate()+1),
 			endTime: date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + date2.getDate()
 		}
 	},
@@ -94,7 +94,7 @@ export default {
 		axios({
 			timeout: 5000,
 			method: defaultOption.method || 'post',
-			url: defaultOption.url || 'http://api.homecare.sdsesxh.com', //'http://api.homecare.xuhui.com',
+			url: defaultOption.url || 'http://api.homecare.sdsesxh.com',  //'http://api.homecare.xuhui.com',
 			data: payloadData
 		}).then(response => {
 			//判断是否有头像，没有就替换成默认值			

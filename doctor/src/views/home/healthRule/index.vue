@@ -18,7 +18,35 @@
 			return {
 				confirm: false,
 				remarks: '',
-				list: []
+				list: [{
+					DataType:"100",
+					MaxValue:'',
+					MinValue:''
+				},{
+					DataType:"200",
+					MaxValue:'',
+					MinValue:''
+				},{
+					DataType:"201",
+					MaxValue:'',
+					MinValue:''
+				},{
+					DataType:"300",
+					MaxValue:'',
+					MinValue:''
+				},{
+					DataType:"400",
+					MaxValue:'',
+					MinValue:''
+				},{
+					DataType:"500",
+					MaxValue:'',
+					MinValue:''
+				},{
+					DataType:"501",
+					MaxValue:'',
+					MinValue:''
+				}]
 			}
 		},
 		methods: {

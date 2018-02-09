@@ -28,7 +28,9 @@
 						<th>下午<br />13:30-17:30</th>
 					</tr>
 					<tr v-for='t in list'>
-						<td>{{t.ToDate.split('-')[1]+'月'+t.ToDate.split('-')[2]+'日'}}<br />周{{$common.dateWeek[t.DateWeek]}}</td>
+						<td>{{t.ToDate.split('-')[1]+'月'+t.ToDate.split('-')[2]+'日'}}<br />
+						<!-- 周{{$common.dateWeek[t.DateWeek]}} -->
+						</td>
 						<td :class='{active:t.Morning&&t.Morning.free}'>
 							<span v-if='t.Morning'>
 								<span v-if='t.Morning.free' @click='addAppointment({ToDate:t.ToDate,TimeSlot:1})'>预约</span>
