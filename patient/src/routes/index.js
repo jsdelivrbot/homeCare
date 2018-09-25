@@ -10,7 +10,7 @@ import homeRouterView from 'views/home/routerView.vue';
 import home from 'views/home/index';
 import newsDetails from 'views/home/news/details.vue';
 import trackView from 'views/home/trackView/index.vue';
-import healthData from 'views/home/healthData/index.vue';
+// import healthData from 'views/home/healthData/index.vue';
 import healthRule from 'views/home/healthRule/index.vue';
 import contractDoctor from 'views/home/contractDoctor/index';
 import contractDoctorDetails from 'views/home/contractDoctor/details.vue';
@@ -108,12 +108,14 @@ const routes = [{
 				name: "轨迹查看",
 				component: trackView
 
-			}, {
-				path: 'healthData',
-				name: "健康数据",
-				component: healthData,
+			}, 
+			// {
+			// 	path: 'healthData',
+			// 	name: "健康数据",
+			// 	component: healthData,
 
-			}, {
+			// },
+			 {
 				path: 'healthRule',
 				name: "预计设置",
 				component: healthRule,
@@ -182,7 +184,97 @@ const routes = [{
 				path: 'familyMemberSearch',
 				name: "关注家属搜索",
 				component: familyMemberSearch
-			}
+			},
+			{
+				path: '/chartsClassification',
+				name: '健康数据',
+				meta: {
+					noRequiresAuth: true
+				},
+				component: resolve => {
+				  require(['@/views/home/healthData/ChartsClassification'], resolve);
+				}
+			  },
+			  {
+				path: '/Charts101',
+				name: '体温',
+				meta: {
+					noRequiresAuth: true
+				},
+				component: resolve => {
+				  require(['@/views/home/healthData/Charts101'], resolve);
+				}
+			  },
+			  {
+				path: '/Charts200',
+				name: '血压',
+				meta: {
+					noRequiresAuth: true
+				},
+				component: resolve => {
+				  require(['@/views/home/healthData/Charts200'], resolve);
+				}
+			  },
+			  {
+				path: '/Charts300',
+				name: '血氧',
+				meta: {
+					noRequiresAuth: true
+				},
+				component: resolve => {
+				  require(['@/views/home/healthData/Charts300'], resolve);
+				}
+			  },
+			  {
+				path: '/Charts401',
+				name: '心率',
+				meta: {
+					noRequiresAuth: true
+				},
+				component: resolve => {
+				  require(['@/views/home/healthData/Charts401'], resolve);
+				}
+			  },
+			  {
+				path: '/Charts500',
+				name: '空腹血糖',
+				meta: {
+					noRequiresAuth: true
+				},
+				component: resolve => {
+				  require(['@/views/home/healthData/Charts500'], resolve);
+				}
+			  },
+			  {
+				path: '/Charts501',
+				name: '餐后血糖',
+				meta: {
+					noRequiresAuth: true
+				},
+				component: resolve => {
+				  require(['@/views/home/healthData/Charts501'], resolve);
+				}
+			  },
+			  {
+				path: '/Charts900',
+				name: '心电图',
+				meta: {
+					noRequiresAuth: true
+				},
+				component: resolve => {
+				  require(['@/views/home/healthData/Charts900'], resolve);
+				}
+			  },
+			  {
+				path: '/Charts900Content',
+				name: '心电图详情',
+				meta: {
+					noRequiresAuth: true
+				},
+				component: resolve => {
+				  require(['@/views/home/healthData/Charts900Content'], resolve);
+				}
+			  }
 		]
 	}, {
 		path: '/userCenterRouterView',

@@ -22,7 +22,6 @@
 </template>
 
 <script>
-	import { XHeader, Divider, Spinner } from 'vux'
 	export default {
 		data() {
 			return {
@@ -33,9 +32,7 @@
 		methods: {
 			getData() {
 				this.loading=true;
-				this.$common.ajax({
-					loading: false,
-					result: true,
+				this.$ajax({
 					data: {
 						header: {
 							action: 'GetDepartList',
@@ -55,11 +52,6 @@
 		},
 		mounted() {
 			this.getData();
-		},
-		components: {
-			XHeader,
-			Divider,
-			Spinner
 		}
 	}
 </script>

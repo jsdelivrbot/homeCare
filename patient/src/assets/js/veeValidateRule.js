@@ -1,4 +1,4 @@
-export default {	 
+export default {	
 	noSpecial:{
 		messages: {
 			zh_CN: (field, args) => '不能使用特殊字符',

@@ -1,0 +1,97 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+		<style type="text/css">
+			.view-news-details {
+				height: auto;
+				/*img {
+		width: 100%;
+	}*/
+			}
+			
+			.view-news-details.isLink {
+				padding: 0!important;
+			}
+			
+			.view-news-details .content {
+				width: 100%;
+				overflow: hidden;
+				/*text-align: center;*/
+			}
+			
+			.view-news-details .content .title-box {
+				text-align: center;
+				padding-bottom: 10px;
+				border-bottom: 1px solid #dfdfdf;
+			}
+			
+			.view-news-details .content h1 {
+				font-size:16px;
+				margin: 0;
+			}
+			
+			.view-news-details .content h1 span {
+				font-size: 14px;
+			}
+			
+			.view-news-details .content .text {
+				    line-height: 24px;
+				padding: 10px;
+			}
+			img{
+			width: 100%!important;
+			height: auto!important;
+		}
+		.pic{
+			width: 100%;
+			margin-top: 5px;
+		}
+		</style>
+	</head>
+
+	<body>
+		<div class="view-news-details">
+		<div class="content">
+			<div class="title-box">
+				<h1 class='title'></h1>
+				<br /><span class='show-time'></span>
+			</div>
+			<div class="pic">
+				<img src=""/>
+			</div>
+			<div class='text'></div>
+		</div>
+		</div>
+		<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$.ajax({
+					type: "POST",
+					url: "http://api.homecare.sdsesxh.com",
+					contentType: "application/json",
+					data: JSON.stringify({
+						body: {
+							id: location.href.split('=')[1]
+						},
+						header: {
+							"version": "1.0",
+							"token": "",
+							"action": "GetNewsInfo"
+						}
+					}),
+					success: function(res) {
+						$('.pic img').attr('src',res.body.PicIndex);
+						$('.title').text(res.body.Title)
+						$('.show-time').text(res.body.ShowTime)
+						$('.text').html(res.body.Content)
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

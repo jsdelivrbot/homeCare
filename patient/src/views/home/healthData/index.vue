@@ -49,7 +49,6 @@
 	</div>
 </template>
 <script>
-	import { Tab, TabItem, XHeader, XDialog } from 'vux'
 	import memberFamily from 'components/memberFamily.vue'
 	import mixins from 'assets/js/mixins.js'
 	import echartOption from 'assets/js/echartOption.js'
@@ -57,6 +56,9 @@
 	export default {
 		name: 'healthData',
 		mixins: [mixins.dateTime],
+		components: {
+			memberFamily,
+		},
 		data() {
 			return {
 				show: false, //ecg弹出框
@@ -82,15 +84,19 @@
 				});
 			}
 		},
+		mounted() {
+			this.userId =this.$route.query.userId||this.$common.getLocalStorage('user').userid;
+			this.getData({
+				type: this.type
+			});
+		},		
 		methods: {
 			//获取心电图数据
 			getEcgData(opt) {
 				this.show = true;
 				this.$refs.ecgEchart.showLoading();
 				this.$refs.echart.$el.style.zIndex = '-1'
-				this.$common.ajax({
-					loading: false,
-					result: true,
+				this.$ajax({
 					data: {
 						header: {
 							action: 'GetEEGData',
@@ -134,9 +140,7 @@
 				this.$refs.echart.$el.style.zIndex = '0'
 				this.type = opt.type;
 				this.$refs.echart.showLoading();
-				this.$common.ajax({
-					loading: false,
-					result: true,
+				this.$ajax({
 					data: {
 						header: {
 							action: 'GetHealthData',
@@ -176,20 +180,7 @@
 				});
 			}
 		},
-		mounted() {
-			this.userId =this.$route.query.userId||this.$common.getLocalStorage('user').userid;
-			this.getData({
-				type: this.type
-			});
-		},
-
-		components: {
-			Tab,
-			TabItem,
-			XHeader,
-			memberFamily,
-			XDialog
-		}
+		
 	}
 </script>
 

@@ -3,6 +3,9 @@
 		<spinner type="ios" v-if='loading'></spinner>
 		<div class="content" v-else>
 			<h1>{{details.Title}}<br /><span>{{details.ShowTime}}</span></h1>
+			<div class='pic'>
+				<img :src="details.PicIndex" alt="">
+			</div>
 			<div class='text' v-html='details.Content'></div>
 		</div>
 	</div>
@@ -60,17 +63,28 @@
 			width: 100%;
 			overflow: hidden;
 			padding-top: 50px;
-			text-align: center;
-			font-size: 52px;
+			font-size: 42px;
 			h1 {
+				text-align: center;
 				padding-bottom: 20px;
-				border-bottom: 1px solid #dfdfdf;
+				border-bottom: 1px solid #bfbfbf;
 				span {
-					font-size: 42px;
+					font-size: 36px;
+					color:#929292;
 				}
+			}
+			p{
+				font-size: 36px;
+				line-height: 72px; 
+				margin-bottom: 10px;
+			}
+			.pic{
+				padding:10px;
+			margin-top: 10px;
 			}
 			.text {
 				padding: 40px;
+				padding-top: 0px;
 			}
 			img{
 			width: 100%!important;

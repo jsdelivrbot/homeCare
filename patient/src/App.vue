@@ -5,7 +5,7 @@
 	</div>
 </template>
 <script>
-	import sos from 'components/sos'
+	// import sos from 'components/sos'
 
 	
 	export default {
@@ -21,7 +21,7 @@
 		mounted() {
 		},
 		components: {
-			sos
+			// sos
 			
 		}
 	}
@@ -31,4 +31,5 @@
 	@import '~assets/less/animate.min.css';/*css3动画库*/
 	@import '~assets/less/coverVux.less';/*覆盖vux的样式*/
 	@import '~assets/less/common.less';  /*全局通用*/	
+	
 </style>

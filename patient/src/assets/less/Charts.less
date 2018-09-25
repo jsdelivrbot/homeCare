@@ -1,0 +1,117 @@
+.view-common-chart {
+  padding-top:110px;
+  .vux-button-group {
+    padding: 10px 10px;
+    .vux-button-tab-item:after {
+      border-color: #2d8cf0 !important;
+    }
+    a.vux-button-group-current {
+      background: #2d8cf0 !important;
+    }
+  }
+  .vux-tab-selected {
+    border: none !important;
+    color: #fff !important;
+    background: #2d8cf0 !important;
+  }
+  .echarts {
+    width: 100% !important;
+  }
+  .vux-swiper {
+    height: 100% !important;
+    background: #f5f5f5;
+  }
+  .weui-grids:before {
+    border: none !important;
+  }
+  .weui-grid:after {
+    border: none !important;
+  }
+  .trend-map {
+    .content-box {
+      background: #fff;
+      border-radius: 20px;
+      margin: 0 20px;
+      padding: 10px 0px;
+        .no-current-text{
+          font-size:14px;
+        }
+      .circle {
+        background: #05be03;
+        color: #fff;
+        border-radius: 100%;
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        font-size:42px;
+        font-weight: 100;
+        margin: 0 auto;
+        text-align: center;
+        &.circle-error{
+          background: red;
+          
+        }
+      }
+      
+      .circle-item {
+        width: 30% !important;
+      }
+      .text-item {
+        text-align: left;
+        // width: 23.333% !important;
+        padding-top: 80px;
+        p {
+          font-size: 42px;
+        }
+        span {
+          font-size: 42px;
+        }
+      }
+    }
+    .charts-box {
+      background: #fff;
+      border-radius: 20px;
+      margin: 0 20px;
+      margin-top: 20px;
+      padding: 0px;
+      position: relative;
+      height: 900px;
+      .echarts{
+      height: 100%;
+      }
+      .explain {
+        position: absolute;
+        left: 7%;
+        bottom: 0px;
+        width:50%;
+        span {
+          width: 50%;
+          display: inline-block;
+          color: #999;
+          i {
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            border: 2px solid red;
+            display: inline-block;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+  .chart-pie-box {
+    height: 97%;
+    background: #fff;
+    border-radius: 20px;
+    margin: 0 20px;
+    margin-top: 20px;
+    padding: 20px;
+    .echarts {
+      height: 1300px;
+    }
+  }
+  .table-box {
+    margin: 10px; 
+  }
+}

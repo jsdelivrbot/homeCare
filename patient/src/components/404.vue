@@ -8,7 +8,6 @@
 </template>
 
 <script>
-	import { XHeader } from 'vux'
 	export default {
 		name:'noPage',		
 		data() {
@@ -20,9 +19,6 @@
 		methods: {			
 		},
 		mounted() {
-		},
-		components: {
-			XHeader
 		}
 	}
 </script>

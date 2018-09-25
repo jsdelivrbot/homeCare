@@ -26,7 +26,6 @@
 	</div>
 </template>
 <script>
-	import { XHeader, Spinner } from 'vux'
 	import mixins from 'assets/js/mixins.js'
 	import dateTime from 'components/dateTime'
 	export default {
@@ -56,8 +55,7 @@
 		},
 		mounted() {},
 		components: {
-			XHeader,
-			Spinner,
+			
 			dateTime
 		}
 	}

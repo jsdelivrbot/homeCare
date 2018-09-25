@@ -14,7 +14,7 @@
 		<div class="plate-box">
 			<ul>
 				<li>
-					<router-link :to="{path:'/homeRouterView/healthData'}">
+					<router-link :to="{path:'/chartsClassification'}">
 						<div class="img menu1"></div>
 						<p>健康数据</p>
 					</router-link>
@@ -91,7 +91,6 @@
 	</div>
 </template>
 <script>
-	import { XHeader, Swiper, Spinner } from 'vux'
 	import xhFoot from 'components/footer';
 	import sos from 'components/sos'
 	export default {
@@ -114,9 +113,10 @@
 		methods: {
 			//获取海报
 			getBanner() {
-				this.$common.ajax({
-					result: true,
-					loading: false,
+				 this.$vux.loading.show({
+            text: "加载中"
+          });
+				this.$ajax({
 					data: {
 						header: {
 							action: 'GetAppAdvertisement',
@@ -137,9 +137,10 @@
 			},
 			//获取新闻列表
 			getNews() {
-				this.$common.ajax({
-					result: true,
-					loading: false,
+				 this.$vux.loading.show({
+            text: "加载中"
+          });
+				this.$ajax({
 					data: {
 						header: {
 							action: 'GetNewsListSingle',
@@ -174,11 +175,8 @@
 
 		},
 
-		components: {
-			Swiper,
-			XHeader,
+		components: {			
 			xhFoot,
-			Spinner,
 			sos
 
 		}
@@ -221,6 +219,7 @@
 					text-align: center;
 					p {
 						font-size: 38px;
+						color:#333;
 					}
 				}
 			}
@@ -282,8 +281,9 @@
 								-webkit-line-clamp: 1;
 							}
 							p {
+								margin-top: 10px;
 								font-size: 36px;
-								color: #808080;
+								color: #808080!important;
 								-webkit-line-clamp: 2;
 							}
 							.text-bottom {

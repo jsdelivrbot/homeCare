@@ -116,7 +116,8 @@ export default {
 			xAxis: {
 				type: 'category',
 				boundaryGap: false,
-				data: [] //测量日期
+				data: [],
+				formatter: '{value} '
 			},
 			yAxis: {
 				type: 'value',

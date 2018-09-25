@@ -1,3 +1,4 @@
+
 .vux-header {
     height: 110px;
     background: @primary-color;
@@ -110,30 +111,30 @@ button.weui-btn {
     }
 }
 
-div.weui-toast {
-    top: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    border-radius: 15px;
-    min-height: auto;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    &>i.weui-loading {
-        width: 80px;
-        height: 80px;
-    }
-    &>i.weui-icon_toast {
-        &::before {
-            font-size: 120px;
-        }
-    }
-    &>p {
-        font-size: 40px;
-    }
-    &.weui-toast_text {
-        width: auto!important;
-        padding: 0px 30px;
-    }
-}
+// div.weui-toast {
+//     top: 50%;
+//     transform: translate3d(-50%, -50%, 0);
+//     border-radius: 15px;
+//     min-height: auto;
+//     padding-top: 5px;
+//     padding-bottom: 10px;
+//     &>i.weui-loading {
+//         width: 80px;
+//         height: 80px;
+//     }
+//     &>i.weui-icon_toast {
+//         &::before {
+//             font-size: 120px;
+//         }
+//     }
+//     &>p {
+//         font-size: 40px;
+//     }
+//     &.weui-toast_text {
+//         width: auto!important;
+//         padding: 0px 30px;
+//     }
+// }
 
 .vux-indicator {
     a {
@@ -169,9 +170,19 @@ span.vux-spinner {
     }
     }
 }
-
+.weui-cells{
+    &:before{
+        border-top:4px solid #d9d9d9;
+    }
+    &:after{
+        border-bottom:4px solid #d9d9d9;
+    }
+}
 .weui-cell {
     position: relative;
+    &:before{
+        border-top:4px solid #d9d9d9;
+    }
     .weui-cell__hd {
         img {
             width: 60px;
@@ -199,49 +210,49 @@ span.vux-spinner {
     color: @primary-color;
 }
 
-.weui-dialog {
-    border-radius: 15px;
-    .weui-dialog__title {
-        font-size: 50px;
-    }
-    .weui-dialog__bd {
-        font-size: 46px;
-    }
-    .weui-dialog__ft {
-        padding: 40px 0px;
-        .weui-dialog__btn {
-            font-size: 50px;
-        }
-    }
-}
+// .weui-dialog {
+//     border-radius: 15px;
+//     .weui-dialog__title {
+//         font-size: 50px;
+//     }
+//     .weui-dialog__bd {
+//         font-size: 46px;
+//     }
+//     .weui-dialog__ft {
+//         padding: 40px 0px;
+//         .weui-dialog__btn {
+//             font-size: 50px;
+//         }
+//     }
+// }
 
-.dp-container {
-    .dp-header {
-        border-bottom: 1px solid #e7e7e7;
-        .vux-datetime-cancel,
-        .vux-datetime-confirm {
-            font-size: 42px;
-            height: 120px;
-            line-height: 120px;
-        }
-        .vux-datetime-cancel {
-            padding-left: 40px;
-        }
-        .vux-datetime-confirm {
-            padding-right: 40px;
-        }
-        .dp-center {
-            text-align: center;
-            font-size: 40px;
-            color: #828282;
-        }
-    }
-    .dp-content {
-        .scroller-item {
-            font-size: 42px;
-        }
-    }
-}
+// .dp-container {
+//     .dp-header {
+//         border-bottom: 1px solid #e7e7e7;
+//         .vux-datetime-cancel,
+//         .vux-datetime-confirm {
+//             font-size: 42px;
+//             height: 120px;
+//             line-height: 120px;
+//         }
+//         .vux-datetime-cancel {
+//             padding-left: 40px;
+//         }
+//         .vux-datetime-confirm {
+//             padding-right: 40px;
+//         }
+//         .dp-center {
+//             text-align: center;
+//             font-size: 40px;
+//             color: #828282;
+//         }
+//     }
+//     .dp-content {
+//         .scroller-item {
+//             font-size: 42px;
+//         }
+//     }
+// }
 
 //过渡
 .vux-pop-out-enter-active,
@@ -338,3 +349,31 @@ span.vux-spinner {
   opacity: 0;
   transform: translate3d(-100%, 0, 0);
 }
+.weui-cell_radio{
+    p{
+      font-size:42px;
+    }
+    span.weui-icon-checked{
+        &:before{
+            font-size:52px!important;
+        }
+       
+    }
+  }
+  .vux-popup-dialog{
+      max-height: 50%!important;
+  }
+  .vux-divider{
+      font-size:42px;
+  }
+  .vux-button-group > a.vux-button-group-current{
+    background: #01aeff;
+   
+  }
+  .vux-button-group > a.vux-button-tab-item:after{
+    border: 1px solid #01aeff!important;
+    color: #01aeff!important;
+  }
+  .vux-x-switch{
+      padding:30px 0px!important;
+  }

@@ -34,7 +34,6 @@
 </template>
 
 <script>
-	import { XDialog, Spinner } from 'vux'
 	export default {
 		name: 'memberFamily',
 		data() {
@@ -48,10 +47,8 @@
 		methods: {
 			getData() {
 				this.loading = true;
-				setTimeout(() => {
-					this.$common.ajax({
-						loading: false,
-						result: true,
+				setTimeout(() => {					
+					this.$ajax({
 						data: {
 							header: {
 								action: 'GetConcernList',
@@ -73,11 +70,7 @@
 				this.$emit('on-hide', opt);
 			}
 		},
-		mounted() {},
-		components: {
-			XDialog,
-			Spinner
-		}
+		mounted() {}
 	}
 </script>
 

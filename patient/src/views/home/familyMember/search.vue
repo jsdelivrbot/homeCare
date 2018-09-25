@@ -13,7 +13,7 @@
 		<div class="list">
 			<spinner type="ios" v-if='loading'></spinner>
 			<div v-else>
-				<div v-for='t in list' style='position: relative;margin-bottom: 10px;'>
+				<div v-for='t in list' style='position: relative;margin-bottom: 10px;border-bottom: 10px solid #dfdfdf;'>
 					<!--<router-link :to="{path: '/familyMemberDetails',query:{id:details.ID}}">-->
 					<div class="common-box-list">
 						<div class="box-body">
@@ -44,7 +44,6 @@
 </template>
 
 <script>
-	import { XHeader, Search, Spinner, XButton,XInput, Confirm, XTextarea } from 'vux';
 	import mixins from 'assets/js/mixins.js'
 	export default {
 		name: 'familyMembersearch',
@@ -55,6 +54,7 @@
 				search: '', //查询输入的值				
 			}
 		},
+		mounted() {},
 		methods: {
 			openConfirm(obj) {
 				this.details=obj;
@@ -64,8 +64,7 @@
 			getData() {
 				if(this.search != '') {
 					this.loading = true;
-					this.$common.ajax({
-						result: true,
+					this.$ajax({
 						data: {
 							header: {
 								action: 'GetUserList',
@@ -93,17 +92,8 @@
 			}
 
 		},
-		mounted() {},
+		
 
-		components: {
-			XHeader,
-			Search,
-			Spinner,
-			XButton,
-			XInput,
-			Confirm,
-			XTextarea
-		}
 	}
 </script>
 

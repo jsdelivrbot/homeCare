@@ -29,7 +29,6 @@
 </template>
 
 <script>
-	import { XHeader } from 'vux'
 	export default {
 		name: 'healthInterventionProgramDetails',
 		data() {
@@ -37,10 +36,16 @@
 				details: {},
 			}
 		},
+		mounted() {
+			this.getData();
+			document.querySelector('.view-health-program-details').style.height=window.innerHeight+'px';
+		},
 		methods: {
 			getData() {
-				this.$common.ajax({
-					result:true,
+			 this.$vux.loading.show({
+            text: "加载中"
+          });
+				this.$ajax({
 					data: {
 						header: {
 							action: 'GetHealthSuggestByID',
@@ -55,15 +60,8 @@
 				})
 			},
 		},
-		mounted() {
-			this.getData();
-			document.querySelector('.view-health-program-details').style.height=window.innerHeight+'px';
-		},
+		
 
-		components: {
-			XHeader,
-
-		}
 	}
 </script>
 
@@ -81,7 +79,7 @@
 			border:1px solid @gray;
 			background: #fff;
 			border-radius:15px;			
-			width: 900px;
+			width: 95%;
 			margin: 0 auto;
 			margin-top: 60px;
 			padding:30px 60px;

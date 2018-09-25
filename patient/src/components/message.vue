@@ -27,7 +27,6 @@
 </template>
 
 <script>
-	import { XHeader, XButton } from 'vux'
 	export default {
 		name: 'message',
 		data() {
@@ -49,8 +48,10 @@
 		},
 		methods: {
 			getData() {
-				this.$common.ajax({
-					result: true,
+				 this.$vux.loading.show({
+							 text:'加载中'
+						 });
+				this.$ajax({
 					data: {
 						header: {
 							action: 'GetHealthWarnForWx',
@@ -71,8 +72,10 @@
 							CheckState: type
 						}						
 						bodyData[this.idType]=this.details.ID;
-						this.$common.ajax({
-							result: true,
+						this.$vux.loading.show({
+							 text:'加载中'
+						 });
+						this.$ajax({
 							data: {
 								header: {
 									action: this.details.Action
@@ -96,10 +99,6 @@
 		mounted() {
 			this.getData();
 
-		},
-		components: {
-			XHeader,
-			XButton
 		}
 	}
 </script>

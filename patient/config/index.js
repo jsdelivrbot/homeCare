@@ -1,14 +1,26 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
-
+function getIPAdress(){  
+	var interfaces = require('os').networkInterfaces();  
+	for(var devName in interfaces){  
+		  var iface = interfaces[devName];  
+		  for(var i=0;i<iface.length;i++){  
+			   var alias = iface[i];  
+			   if(alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal){  
+					 return alias.address;  
+			   }  
+		  }  
+	}  
+  }
 module.exports = {
 	build: {
 		env: require('./prod.env'),
 		index: path.resolve(__dirname, '../dist/index.html'),
 		assetsRoot: path.resolve(__dirname, '../dist'),
 		assetsSubDirectory: 'static',
-		assetsPublicPath: '',
+		assetsPublicPath: 'http://wxuser.homecare.sdsesxh.com/',
 		productionSourceMap: true,
+		
 		// Gzip off by default as many popular static hosts such as
 		// Surge or Netlify already gzip all static assets for you.
 		// Before setting to `true`, make sure to:
@@ -23,21 +35,22 @@ module.exports = {
 	},
 	dev: {
 		env: require('./dev.env'),
-		port: 8083,
+		host: getIPAdress(), // can be overwritten by process.env.HOST
+		port: 8102,
 		autoOpenBrowser: false,
 		assetsSubDirectory: 'static',
 		assetsPublicPath: '/',
 		proxyTable: {
-			'/homecareApi': {
-				target: 'http://api.homecare.xuhuicn.com', //获取数据端口，对应后台server端口
-				changeOrigin: true,
-				filter: function(pathname, req) {
-					return !pathname.match('hot-update\.json$') && pathname.match('\.json$|\.jpeg$');
-				},
-				pathRewrite: {
-					'^/homecareApi': '/homecareApi'
-				}
-			}
+			// '/homecareApi': {
+			// 	target: 'http://api.homecare.xuhuicn.com', //获取数据端口，对应后台server端口
+			// 	changeOrigin: true,
+			// 	filter: function(pathname, req) {
+			// 		return !pathname.match('hot-update\.json$') && pathname.match('\.json$|\.jpeg$');
+			// 	},
+			// 	pathRewrite: {
+			// 		'^/homecareApi': '/homecareApi'
+			// 	}
+			// }
 		},
 		// CSS Sourcemaps off by default because relative paths are "buggy"
 		// with this option, according to the CSS-Loader README

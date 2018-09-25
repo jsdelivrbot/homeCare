@@ -39,6 +39,22 @@ export default {
 		900: '心电图',
 		// 1000: '脉率',
 	},
+	// 获取指定URL中的某个参数      name:参数名，url：为空表示当前url
+	getUrlParams: function (name, url) {
+		if (!url) url = window.location.href;
+		var params = {};
+		var url = decodeURI(url).split('#/')[0];
+		var idx = url.indexOf("?");
+		if (idx > 0) {
+		  var queryStr = url.substring(idx + 1);
+		  var args = queryStr.split("&");
+		  for (var i = 0, a, nv; a = args[i]; i++) {
+			nv = args[i] = a.split("=");
+			params[nv[0]] = nv.length > 1 ? nv[1] : true;
+		  }
+		}
+		return params[name] || "";
+	  },
 	//清除缓存
 	clearLocalStorage() {
 		let arr = ['realState', 'token', 'user', 'userPic']
@@ -93,8 +109,8 @@ export default {
 		}
 		axios({
 			timeout: 5000,
-			method: defaultOption.method || 'post',
-			url: defaultOption.url || 'http://api.homecare.sdsesxh.com',  //'http://api.homecare.xuhui.com',
+			method:  'post',
+			url:  'http://api.homecare.sdsesxh.com',  //'http://api.homecare.xuhuicn.com',
 			data: payloadData
 		}).then(response => {
 			//判断是否有头像，没有就替换成默认值			
@@ -112,77 +128,87 @@ export default {
 
 				}
 			}
-
 			if(defaultOption.loading) {
 				setTimeout(() => {
 					homeCareApp.$vux.loading.hide();
 				}, 0)
 			}
-			let statusMethod = {
-				'0' () {
-					if(response.data.body && response.data.body.result || defaultOption.result) {
-						defaultOption.success(response.data.body, response.data.header);
-					} else {
-						if(defaultOption.toast) {
-							setTimeout(() => {
-								if(defaultOption.error) {
-									defaultOption.error(response.data.body);
-								} else {
-									homeCareApp.$vux.toast.show({
-										text: response.data.body.cause,
-										type: 'cancel'
-									})
 
-								}
-							}, 0)
-						}
-					}
-				},
-				'3' () {
-					statusMethod['4']();
-				},
-				'4' () {
-					setTimeout(() => {
-						let text;
-						if(response.data.header.desc != '') {
-							text = response.data.header.desc
-						} else {
-							text = response.data.header.failures.message
-						}
-						if(defaultOption.error) {
-							defaultOption.error(response.data.body);
-						}
-						if(!defaultOption.noMessage) {
-							homeCareApp.$vux.toast.show({
-								text: text,
-								type: 'warn',
-							});
-						}
-
-					}, 0)
-				},
-				'5' () {
-					statusMethod['4']();
-					setTimeout(() => {
-						homeCareApp.$common.clearLocalStorage();
-						homeCareApp.$router.push({
-							path: 'login'
-						});
-					}, 2000)
-				},
-				//token过期
-				'6' () {
-					//					statusMethod['4']();
-					setTimeout(() => {
-						homeCareApp.$common.login({})
-					}, 0)
-
-				},
-				'7' () {
-					statusMethod['4']();
-				}
+			if(response.data.header.status=='0'){
+				defaultOption.success(response.data.body, response.data.header);
+			}else{
+				homeCareApp.$vux.toast.show({
+					text: response.data.header.failures.message,
+					type: 'warn',
+				});
+				defaultOption.error(response.data.body);
 			}
-			statusMethod[response.data.header.status]();
+			
+			// let statusMethod = {
+			// 	'0' () {
+			// 		if(response.data.body && response.data.body.result || defaultOption.result) {
+			// 			defaultOption.success(response.data.body, response.data.header);
+			// 		} else {
+			// 			if(defaultOption.toast) {
+			// 				setTimeout(() => {
+			// 					if(defaultOption.error) {
+			// 						defaultOption.error(response.data.body);
+			// 					} else {
+			// 						homeCareApp.$vux.toast.show({
+			// 							text: response.data.body.cause,
+			// 							type: 'cancel'
+			// 						})
+
+			// 					}
+			// 				}, 0)
+			// 			}
+			// 		}
+			// 	},
+			// 	'3' () {
+			// 		statusMethod['4']();
+			// 	},
+			// 	'4' () {
+			// 		setTimeout(() => {
+			// 			let text;
+			// 			if(response.data.header.desc != '') {
+			// 				text = response.data.header.desc
+			// 			} else {
+			// 				text = response.data.header.failures.message
+			// 			}
+			// 			if(defaultOption.error) {
+			// 				defaultOption.error(response.data.body);
+			// 			}
+			// 			if(!defaultOption.noMessage) {
+			// 				homeCareApp.$vux.toast.show({
+			// 					text: text,
+			// 					type: 'warn',
+			// 				});
+			// 			}
+
+			// 		}, 0)
+			// 	},
+			// 	'5' () {
+			// 		statusMethod['4']();
+			// 		setTimeout(() => {
+			// 			homeCareApp.$common.clearLocalStorage();
+			// 			homeCareApp.$router.push({
+			// 				path: 'login'
+			// 			});
+			// 		}, 2000)
+			// 	},
+			// 	//token过期
+			// 	'6' () {
+			// 		//					statusMethod['4']();
+			// 		setTimeout(() => {
+			// 			homeCareApp.$common.login({})
+			// 		}, 0)
+
+			// 	},
+			// 	'7' () {
+			// 		statusMethod['4']();
+			// 	}
+			// }
+			// statusMethod[response.data.header.status]();
 		}).catch(response => {
 			if(response.code == "ECONNABORTED") {
 				homeCareApp.$vux.loading.hide();
@@ -198,7 +224,7 @@ export default {
 
 	},
 	//全局通用登录
-	login(opt) {
+	login(opt) {		
 		setTimeout(() => {
 			let data = {
 				mobile: opt.tel || '',
@@ -209,9 +235,10 @@ export default {
 			if(localStorage.openId != 'undefined') {
 				data.openId = localStorage.openId
 			}
-			homeCareApp.$common.ajax({
-				loading: opt.loading,
-				noMessage: opt.noMessage || false,
+			homeCareApp.$vux.loading.show({
+				text: "加载中"
+			  });
+			homeCareApp.$ajax({
 				data: {
 					header: {
 						action: opt.action || 'UserLogin',

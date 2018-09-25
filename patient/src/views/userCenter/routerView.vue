@@ -8,7 +8,6 @@
 </template>
 
 <script>
-	import { XHeader } from 'vux'	
 	export default {
 		data() {
 			return {
@@ -29,7 +28,7 @@
 		},
 
 		components: {
-			XHeader
+			
 
 		}
 	}

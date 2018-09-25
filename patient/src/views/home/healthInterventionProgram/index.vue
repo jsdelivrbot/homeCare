@@ -38,7 +38,6 @@
 </template>
 
 <script>
-	import { XHeader, Spinner } from 'vux'
 	import dateTime from 'components/dateTime'
 	import mixins from 'assets/js/mixins.js'
 	export default {
@@ -70,8 +69,6 @@
 		},
 
 		components: {
-			XHeader,
-			Spinner,
 			dateTime
 		}
 	}
